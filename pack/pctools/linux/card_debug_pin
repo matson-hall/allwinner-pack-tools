@@ -1,0 +1,3 @@
+board    tx						rx					 NO.
+a10      port:PF2<4><1><1>		port:PF4<4><1><1>	1
+
