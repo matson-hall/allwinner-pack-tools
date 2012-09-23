@@ -6,7 +6,7 @@
 
 [product]
 version = "1.0"
-machine = "A10-EVB-V1.2"
+machine = "cubieboard"
 
 ;----------------------------------------------------------------------------------
 ; system configuration
@@ -78,7 +78,7 @@ jtag_di                  = port:PB17<3>
 ;*****************************************************************************
 [dram_para]
 dram_baseaddr        			= 0x40000000
-dram_clk             			= 408
+dram_clk             			= 480
 dram_type				= 3
 dram_rank_num     			=
 dram_chip_density			=
@@ -1320,7 +1320,7 @@ pmu_shutdown_chgcur2     = 1200
 
 pmu_suspendpwroff_vol    = 3500
 
-pmu_batdeten			 = 1
+pmu_batdeten			 = 0
 
 [recovery_key]
 key_min			=4
