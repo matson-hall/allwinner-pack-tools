@@ -22,7 +22,11 @@ build_buildroot()
 {
     (
     cd $CB_BUILDROOT_ROOT
+
+	if [ ! -e .config ]; then
     make cubieboard_defconfig
+	fi
+
     make LICHEE_GEN_ROOTFS=n
     )
 }
