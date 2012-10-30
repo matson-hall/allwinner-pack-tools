@@ -499,13 +499,13 @@ nand_ndqs                = port:PC24<2><default><default><default>
 ;----------------------------------------------------------------------------------
 [disp_init]
 disp_init_enable         = 1
-disp_mode                = 0
+disp_mode                = 2
                          
 screen0_output_type      = 3
 screen0_output_mode      = 4
 
-screen1_output_type      = 3
-screen1_output_mode      = 4
+screen1_output_type      = 4
+screen1_output_mode      = 6
 
 fb0_framebuffer_num      = 2
 fb0_format               = 10
@@ -648,20 +648,20 @@ lcdvsync                 = port:PD27<2><0><default><default>
 ;lcd_gpio_1          SDA
 ;----------------------------------------------------------------------------------
 [lcd1_para]
-lcd_used                 = 0
+lcd_used                 = 1
 
-lcd_x                    = 0
-lcd_y                    = 0
+lcd_x                    = 640
+lcd_y                    = 480
 lcd_dclk_freq            = 0
 lcd_pwm_not_used         = 0
 lcd_pwm_ch               = 1
-lcd_pwm_freq             = 0
+lcd_pwm_freq             = 10000
 lcd_pwm_pol              = 0
 lcd_if                   = 0
-lcd_hbp                  = 0
-lcd_ht                   = 0
-lcd_vbp                  = 0
-lcd_vt                   = 0
+lcd_hbp                  = 46
+lcd_ht                   = 1055
+lcd_vbp                  = 23
+lcd_vt                   = 1050
 lcd_hv_if                = 0
 lcd_hv_smode             = 0
 lcd_hv_s888_if           = 0
