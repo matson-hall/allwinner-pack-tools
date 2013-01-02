@@ -148,6 +148,7 @@ do_pack_crane()
     cp -rf eFex/split_xxxx.fex eFex/card/mbr.fex \
         eGon/storage_media/nand/boot0.bin eGon/storage_media/nand/boot1.bin \
         wboot/bootfs wboot/bootfs.ini wboot/diskfs.fex \
+		wboot/data.fex wboot/cache.fex \
         out/
 
     cp -rf eGon/storage_media/sdcard/boot0.bin out/card_boot0.fex
@@ -205,6 +206,8 @@ do_pack_crane()
     FileAddSum env.fex venv.fex
     FileAddSum boot.fex vboot.fex
     FileAddSum system.fex vsystem.fex
+	FileAddSum data.fex vdata.fex
+	FileAddSum cache.fex vcache.fex
     FileAddSum recovery.fex vrecovery.fex
 
     dragon image.cfg

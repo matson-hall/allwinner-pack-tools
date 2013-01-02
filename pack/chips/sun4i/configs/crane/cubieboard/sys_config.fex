@@ -149,7 +149,7 @@ num     = 8
 ;      verify_file  = VERIFY_000000000
 ;********************************************************************************************************************
 [down_num]
-down_num    = 6
+down_num    = 8
 
 [download0]
 part_name   = bootloader
@@ -176,12 +176,25 @@ encrypt     = 0
 verify_file = VSYSTEMFS_000000
 
 [download4]
+part_name   = data
+pkt_name    = DATA_00000000000
+encrypt     = 0
+verify_file = VDATA_0000000000
+
+[download5]
+part_name   = cache
+pkt_name    = CACHE_0000000000
+encrypt     = 0
+verify_file = VCACHE_000000000
+
+
+[download6]
 part_name   = recovery
 pkt_name    = RECOVERY_0000000
 encrypt     = 0
 verify_file = VRECOVERYFS_0000
 
-[download5]
+[download7]
 part_name   = UDISK
 pkt_name    = DISKFS_000000000
 encrypt     = 0
