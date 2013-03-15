@@ -76,7 +76,7 @@ build_pack()
     cp ${CB_BUILDROOT_ROOT}/output/images/rootfs.ext4 ${CB_OUTPUT_ROOT}/rootfs.ext4
 
     (cd ${CB_TOOLS_ROOT}/pack
-     ./pack -c sun4i -p linux -b cubieboard
+     ./pack -c sun4i -p linux -b cubieboard -d card0
     )
 }
 

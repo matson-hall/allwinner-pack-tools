@@ -78,7 +78,7 @@ jtag_di                  = port:PB17<3>
 ;*****************************************************************************
 [dram_para]
 dram_baseaddr        			= 0x40000000
-dram_clk             			= 480
+dram_clk             			= 240
 dram_type				= 3
 dram_rank_num     			=
 dram_chip_density			=
