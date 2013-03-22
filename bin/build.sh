@@ -9,7 +9,7 @@ CB_BUILDROOT_ROOT=${PWD}/allwinner-buildroot
 CB_OUTPUT_ROOT=$PWD/out
 CB_TOOLS_ROOT=$PWD/allwinner-pack-tools
 
-CROSS_COMPILE=arm-none-linux-gnueabi-
+CROSS_COMPILE=arm-linux-gnueabihf-
 export OBJCOPY=${CROSS_COMPILE}objcopy
 
 build_prepare()
@@ -45,8 +45,8 @@ build_linux()
     (
     cd ${CB_LINUX_ROOT}
     cp arch/arm/configs/cubieboard_defconfig .config
-    make ARCH=arm CROSS_COMPILE=${CROSS_COMPILE} -j4 uImage modules
-    make ARCH=arm CROSS_COMPILE=${CROSS_COMPILE} INSTALL_MOD_PATH=${CB_OUTPUT_ROOT} modules_install
+    make ARCH=arm LOADADDR=0x40008000 -j4 uImage modules
+    make ARCH=arm INSTALL_MOD_PATH=${CB_OUTPUT_ROOT} modules_install
     ${OBJCOPY} -R .note.gnu.build-id -S -O binary vmlinux bImage
     cp arch/arm/boot/uImage bImage ${CB_OUTPUT_ROOT}/
     cp rootfs/sun4i_rootfs.cpio.gz ${CB_OUTPUT_ROOT}/rootfs.cpio.gz

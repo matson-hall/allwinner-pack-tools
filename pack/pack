@@ -108,7 +108,8 @@ do_clean()
 
 do_copy_u_boot()
 {
-    	cp -v $LICHEE_OUT/u-boot.bin bootfs/linux/u-boot.bin
+    cp -v $LICHEE_OUT/u-boot.bin bootfs/linux/u-boot.bin
+    cp -v $LICHEE_OUT/cb.dtb bootfs/linux/
 }
 
 do_pack_crane()

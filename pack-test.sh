@@ -18,15 +18,9 @@ build_linux()
 {
     cd ${LINUX_ROOT}
     cp arch/arm/configs/cubieboard_defconfig .config
-    make ARCH=arm CROSS_COMPILE=${CROSS_COMPILE} -j4 uImage modules
-
-    ${CROSS_COMPILE}objcopy -R .note.gnu.build-id -S -O binary vmlinux bImage
-    mkbootimg --kernel bImage \
-	--ramdisk rootfs/sun4i_rootfs.cpio.gz \
-	--board 'sun4i' \
-	--base 0x40000000 \
-	-o ${OUT_ROOT}/boot.img
-
+    make ARCH=arm LOADADDR=0x40008000  -j4 uImage modules
+	cp ${LINUX_ROOT}/arch/arm/boot/uImage ${OUT_ROOT}/boot.img
+	cp ${LINUX_ROOT}/arch/arm/boot/dts/sun4i-a10-cubieboard.dtb ${OUT_ROOT}/cb.dtb
 }
 
 build_br()
@@ -39,7 +33,7 @@ build_br()
     
     (
 	cd $LINUX_ROOT
-	make ARCH=arm CROSS_COMPILE=${CROSS_COMPILE} modules_install INSTALL_MOD_PATH=${OUT_ROOT}/br/target
+	make ARCH=arm modules_install INSTALL_MOD_PATH=${OUT_ROOT}/br/target
     )
 
     make O=${OUT_ROOT}/br target-generic-getty-busybox
